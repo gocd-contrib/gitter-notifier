@@ -23,7 +23,7 @@ version = '2.0'
 project.ext.pluginDesc = [
         id         : 'gitter.notifier',
         version    : project.version,
-        goCdVersion: '16.2.1',
+        goCdVersion: '15.1.0',
         name       : 'Gitter Notification plugin',
         description: 'Plugin to send Gitter notifications',
         vendorName : 'GoCD Contributors',
@@ -51,8 +51,6 @@ dependencies {
     testCompile group: 'cd.go.plugin', name: 'go-plugin-api', version: project.pluginDesc.goCdVersion
     testCompile group: 'org.jsoup', name: 'jsoup', version: '1.10.2'
     testCompile group: 'org.mockito', name: 'mockito-core', version: '2.7.19'
-
-
 }
 
 processResources {

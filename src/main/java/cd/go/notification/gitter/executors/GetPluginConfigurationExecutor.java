@@ -19,7 +19,7 @@ package cd.go.notification.gitter.executors;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.thoughtworks.go.plugin.api.response.DefaultGoPluginApiResponse;
+import cd.go.notification.gitter.DefaultGoPluginApiResponse;
 import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;
 
 import java.util.LinkedHashMap;
