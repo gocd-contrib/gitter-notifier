@@ -20,8 +20,8 @@ package cd.go.notification.gitter.executors;
 import org.apache.commons.lang3.StringUtils;
 
 public class NonBlankField extends Field {
-    public NonBlankField(String key, String displayName, String defaultValue, Boolean required, Boolean secure, String displayOrder) {
-        super(key, displayName, defaultValue, required, secure, displayOrder);
+    public NonBlankField(String key, String displayName, String defaultValue, Boolean secure, String displayOrder) {
+        super(key, displayName, defaultValue, true, secure, displayOrder);
     }
 
     @Override

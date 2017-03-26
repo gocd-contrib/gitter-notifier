@@ -20,7 +20,7 @@ package cd.go.notification.gitter;
 import cd.go.notification.gitter.executors.GetPluginConfigurationExecutor;
 import cd.go.notification.gitter.executors.NotificationInterestedInExecutor;
 import cd.go.notification.gitter.requests.StageStatusRequest;
-import cd.go.notification.gitter.requests.ValidatePluginSettings;
+import cd.go.notification.gitter.requests.ValidatePluginSettingsRequest;
 import cd.go.notification.gitter.executors.GetViewRequestExecutor;
 import com.thoughtworks.go.plugin.api.GoApplicationAccessor;
 import com.thoughtworks.go.plugin.api.GoPlugin;
@@ -58,7 +58,7 @@ public class GitterNotifierPlugin implements GoPlugin {
                 case PLUGIN_SETTINGS_GET_CONFIGURATION:
                     return new GetPluginConfigurationExecutor().execute();
                 case PLUGIN_SETTINGS_VALIDATE_CONFIGURATION:
-                    return ValidatePluginSettings.fromJSON(request.requestBody()).executor().execute();
+                    return ValidatePluginSettingsRequest.fromJSON(request.requestBody()).executor().execute();
                 default:
                     throw new UnhandledRequestTypeException(request.requestName());
             }

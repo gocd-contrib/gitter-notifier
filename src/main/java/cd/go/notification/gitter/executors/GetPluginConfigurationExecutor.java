@@ -25,17 +25,14 @@ import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/*
- * TODO: add any additional configuration fields here.
- */
 public class GetPluginConfigurationExecutor implements RequestExecutor {
 
     private static final Gson GSON = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
-    public static final Field GO_SERVER_URL = new NonBlankField("server_base_url", "Server Base URL", null, true, false, "0");
-    public static final Field GITTER_TOKEN = new NonBlankField("gitter_token", "Gitter Token", null, true, false, "1");
-    public static final Field GITTER_ROOM_ID = new NonBlankField("gitter_room_id", "Gitter Room ID", null, true, false, "2");
-    public static final Field WHITE_LISTED_PIPELINE_GROUPS = new NonBlankField("white_listed_pipeline_groups", "White listed pipeline groups", null, false, false, "3");
+    public static final Field GO_SERVER_URL = new NonBlankField("server_base_url", "Server Base URL", null, false, "0");
+    public static final Field GITTER_TOKEN = new NonBlankField("gitter_token", "Gitter Token", null, false, "1");
+    public static final Field GITTER_ROOM_ID = new NonBlankField("gitter_room_id", "Gitter Room ID", null, false, "2");
+    public static final Field WHITE_LISTED_PIPELINE_GROUPS = new Field("white_listed_pipeline_groups", "White listed pipeline groups", null, false, false, "3");
 
     public static final Map<String, Field> FIELDS = new LinkedHashMap<>();
 
