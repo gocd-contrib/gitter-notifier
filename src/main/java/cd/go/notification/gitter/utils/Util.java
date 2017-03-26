@@ -18,13 +18,13 @@
 package cd.go.notification.gitter.utils;
 
 import cd.go.notification.gitter.executors.GetViewRequestExecutor;
-import com.google.common.base.Charsets;
-import com.google.common.io.CharStreams;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.InputStream;
 import java.io.StringReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -32,8 +32,8 @@ import java.util.Properties;
 
 public class Util {
     public static String readResource(String resourceFile) {
-        try (InputStreamReader reader = new InputStreamReader(GetViewRequestExecutor.class.getResourceAsStream(resourceFile), Charsets.UTF_8)) {
-            return CharStreams.toString(reader);
+        try (InputStream reader = GetViewRequestExecutor.class.getResourceAsStream(resourceFile)) {
+            return IOUtils.toString(reader, StandardCharsets.UTF_8);
         } catch (IOException e) {
             throw new RuntimeException("Could not find resource " + resourceFile, e);
         }
