@@ -17,7 +17,7 @@
 
 package cd.go.notification.gitter.executors;
 
-import cd.go.notification.gitter.requests.ValidatePluginSettings;
+import cd.go.notification.gitter.requests.ValidatePluginSettingsRequest;
 import com.google.gson.Gson;
 import cd.go.notification.gitter.DefaultGoPluginApiResponse;
 import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;
@@ -28,9 +28,9 @@ import java.util.Map;
 public class ValidateConfigurationExecutor implements RequestExecutor {
     private static final Gson GSON = new Gson();
 
-    private final ValidatePluginSettings settings;
+    private final ValidatePluginSettingsRequest settings;
 
-    public ValidateConfigurationExecutor(ValidatePluginSettings settings) {
+    public ValidateConfigurationExecutor(ValidatePluginSettingsRequest settings) {
         this.settings = settings;
     }
 

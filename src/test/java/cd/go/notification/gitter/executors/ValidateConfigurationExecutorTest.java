@@ -17,7 +17,7 @@
 
 package cd.go.notification.gitter.executors;
 
-import cd.go.notification.gitter.requests.ValidatePluginSettings;
+import cd.go.notification.gitter.requests.ValidatePluginSettingsRequest;
 import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -28,7 +28,7 @@ import static org.junit.Assert.assertThat;
 public class ValidateConfigurationExecutorTest {
     @Test
     public void shouldValidateABadConfiguration() throws Exception {
-        ValidatePluginSettings settings = new ValidatePluginSettings();
+        ValidatePluginSettingsRequest settings = new ValidatePluginSettingsRequest();
         GoPluginApiResponse response = new ValidateConfigurationExecutor(settings).execute();
 
         assertThat(response.responseCode(), is(200));
@@ -44,17 +44,13 @@ public class ValidateConfigurationExecutorTest {
                 "  {\n" +
                 "    \"message\": \"Gitter Room ID must not be blank.\",\n" +
                 "    \"key\": \"gitter_room_id\"\n" +
-                "  },\n" +
-                "  {\n" +
-                "    \"message\": \"White listed pipeline groups must not be blank.\",\n" +
-                "    \"key\": \"white_listed_pipeline_groups\"\n" +
                 "  }\n" +
                 "]", response.responseBody(), true);
     }
 
     @Test
     public void shouldValidateAGoodConfiguration() throws Exception {
-        ValidatePluginSettings settings = new ValidatePluginSettings();
+        ValidatePluginSettingsRequest settings = new ValidatePluginSettingsRequest();
         settings.put("server_base_url", "go.server.url");
         settings.put("gitter_token", "some-token");
         settings.put("gitter_room_id", "some-room-id");
