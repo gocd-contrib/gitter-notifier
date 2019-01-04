@@ -14,14 +14,25 @@
  *  limitations under the License.
  *
  */
+plugins {
+    id 'co.riiid.gradle' version '0.4.2'
+}
 
 apply plugin: 'java'
+apply from: 'plugin-helpers.gradle'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+project.ext.pluginVersion = '2.1.0'
+project.ext.fullVersion = project.git.distVersion() ? "${project.pluginVersion}-${project.git.distVersion()}" : project.pluginVersion
 
 group = 'gitter.notifier'
-version = '2.1.0'
+version = project.fullVersion
 
 project.ext.pluginDesc = [
         id         : 'gitter.notifier',
+        repo       : rootProject.name,
         version    : project.version,
         goCdVersion: '15.1.0',
         name       : 'Gitter Notification plugin',
@@ -29,9 +40,6 @@ project.ext.pluginDesc = [
         vendorName : 'GoCD Contributors',
         vendorUrl  : 'https://github.com/gocd-contrib/gitter-notifier'
 ]
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
     jcenter()
@@ -50,19 +58,8 @@ dependencies {
     testCompile group: 'org.skyscreamer', name: 'jsonassert', version: '1.5.0'
     testCompile group: 'cd.go.plugin', name: 'go-plugin-api', version: project.pluginDesc.goCdVersion
     testCompile group: 'org.jsoup', name: 'jsoup', version: '1.10.2'
-    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.7.19'
-}
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.23.4'
 
-processResources {
-    from("src/main/resource-templates") {
-        filesMatching('plugin.xml') {
-            expand project.pluginDesc
-        }
-
-        filesMatching('plugin.properties') {
-            expand project.pluginDesc
-        }
-    }
 }
 
 jar {
@@ -73,3 +70,5 @@ jar {
 //        into "/"
 //    }
 }
+
+apply from: 'plugin-tasks.gradle'
