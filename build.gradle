@@ -28,7 +28,7 @@ gocdPlugin {
 
   githubRepo {
     owner = System.getenv('GITHUB_USER') ?: 'bob'
-    repo = 'gitter-notification-plugin'
+    repo = 'gitter-notifier'
     token = System.getenv('GITHUB_TOKEN') ?: 'bad-token'
   }
 
