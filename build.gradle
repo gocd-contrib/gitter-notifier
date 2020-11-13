@@ -19,8 +19,8 @@ apply from: "https://raw.githubusercontent.com/gocd/gocd-plugin-gradle-task-help
 
 gocdPlugin {
   id = 'gitter.notifier'
-  pluginVersion = '2.1.0'
-  goCdVersion = '15.1.0'
+  pluginVersion = '2.2.0'
+  goCdVersion = '20.9.0'
   name = 'Gitter Notification plugin'
   description = 'Plugin to send Gitter notifications'
   vendorName = 'GoCD Contributors'
