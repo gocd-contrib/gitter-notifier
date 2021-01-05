@@ -67,7 +67,7 @@ dependencies {
   testCompile group: 'org.skyscreamer', name: 'jsonassert', version: '1.5.0'
   testCompile group: 'cd.go.plugin', name: 'go-plugin-api', version: project.gocdPlugin.goCdVersion
   testCompile group: 'org.jsoup', name: 'jsoup', version: '1.12.1'
-  testCompile group: 'org.mockito', name: 'mockito-core', version: '3.2.4'
+  testCompile group: 'org.mockito', name: 'mockito-core', version: '3.7.0'
 }
 
 jar {
